@@ -10,6 +10,8 @@ public class OrderDTO {
     private String shippingCity;
     private String billingStreetAddress;
     private String billingCity;
+    private String tag;
+    private String status;
 
     public String getCustomerName() {
         return customerName;
@@ -57,5 +59,21 @@ public class OrderDTO {
 
     public void setProducts(List<ProductDTO> products) {
         this.products = products;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -1,6 +1,8 @@
 package com.javaetmoi.benchmark;
 
 import com.javaetmoi.benchmark.mapping.mapper.OrderMapper;
+import com.javaetmoi.benchmark.mapping.mapper.apachebeanutils.ApacheBeanUtilsMapper;
+import com.javaetmoi.benchmark.mapping.mapper.beancopier.BeanCopierMapper;
 import com.javaetmoi.benchmark.mapping.mapper.bull.BullMapper;
 import com.javaetmoi.benchmark.mapping.mapper.datus.DatusMapper;
 import com.javaetmoi.benchmark.mapping.mapper.dozer.DozerMapper;
@@ -8,9 +10,12 @@ import com.javaetmoi.benchmark.mapping.mapper.jmapper.JMapperMapper;
 import com.javaetmoi.benchmark.mapping.mapper.manual.ManualMapper;
 import com.javaetmoi.benchmark.mapping.mapper.mapstruct.MapStructMapper;
 import com.javaetmoi.benchmark.mapping.mapper.modelmapper.ModelMapper;
+import com.javaetmoi.benchmark.mapping.mapper.orika.OrikaAdvancedMapper;
 import com.javaetmoi.benchmark.mapping.mapper.orika.OrikaMapper;
+import com.javaetmoi.benchmark.mapping.mapper.orika.OrikaSimpleMapper;
 import com.javaetmoi.benchmark.mapping.mapper.remappe.ReMappeMapper;
 import com.javaetmoi.benchmark.mapping.mapper.selma.SelmaMapper;
+import com.javaetmoi.benchmark.mapping.mapper.springbeanutils.SpringBeanUtilsMapper;
 import com.javaetmoi.benchmark.mapping.model.dto.OrderDTO;
 import com.javaetmoi.benchmark.mapping.model.entity.Order;
 import com.javaetmoi.benchmark.mapping.model.entity.OrderFactory;
@@ -27,7 +32,8 @@ import java.util.Collection;
 @State(Scope.Benchmark)
 public class MapperBenchmark {
 
-    @Param({"Manual", "MapStruct", "Selma", "JMapper", "datus", "Orika", "ModelMapper", "BULL", "Dozer", "ReMap"})
+    @Param({"Manual", "MapStruct", "Selma", "JMapper", "datus", "Orika", "ModelMapper", "BULL", "Dozer", "ReMap",
+            "ApacheBeanUtils", "SpringBeanUtils", "OrikaSimple", "OrikaAdvanced", "BeanCopier"})
     private String type;
 
     private OrderMapper mapper;
@@ -65,6 +71,21 @@ public class MapperBenchmark {
                 break;
             case "ReMap":
                 mapper = new ReMappeMapper();
+                break;
+            case "ApacheBeanUtils":
+                mapper = new ApacheBeanUtilsMapper();
+                break;
+            case "SpringBeanUtils":
+                mapper = new SpringBeanUtilsMapper();
+                break;
+            case "OrikaSimple":
+                mapper = new OrikaSimpleMapper();
+                break;
+            case "OrikaAdvanced":
+                mapper = new OrikaAdvancedMapper();
+                break;
+            case "BeanCopier":
+                mapper = new BeanCopierMapper();
                 break;
             default:
                 throw new IllegalStateException("Unknown type: " + type);

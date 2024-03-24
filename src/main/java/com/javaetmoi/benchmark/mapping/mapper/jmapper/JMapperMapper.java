@@ -25,7 +25,9 @@ public class JMapperMapper implements OrderMapper {
                     .add(attribute("billingStreetAddress").value("${customer.billingAddress.street}"))
                     .add(attribute("billingCity").value("${customer.billingAddress.city}"))
                     .add(attribute("products").value("products"))
-                    .add(attribute("customerName").value("${customer.name}")))
+                    .add(attribute("customerName").value("${customer.name}"))
+                    .add(attribute("tag").value("${tag}"))
+                    .add(attribute("status").value("${status}")))
                 .add(mappedClass(ProductDTO.class)
                     .add(attribute("name").value("name")));
         

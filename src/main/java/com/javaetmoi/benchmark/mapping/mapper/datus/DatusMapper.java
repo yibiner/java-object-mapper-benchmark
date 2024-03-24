@@ -31,6 +31,10 @@ public class DatusMapper implements OrderMapper {
                 .map(Customer::getShippingAddress).map(Address::getStreet).into(OrderDTO::setShippingStreetAddress)
             .from(Order::getProducts).nullsafe()
                 .map(productMapper::convert).into(OrderDTO::setProducts)
+            .from(Order::getTag).nullsafe()
+            .into(OrderDTO::setTag)
+            .from(Order::getStatus).nullsafe()
+            .into(OrderDTO::setStatus)
             .build();
 
     @Override

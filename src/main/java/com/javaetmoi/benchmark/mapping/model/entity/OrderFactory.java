@@ -37,4 +37,11 @@ public class OrderFactory {
         order.setProducts(Collections.emptyList());
         return order;
     }
+
+    public static Order buildSameNameOrder() {
+        Order order = new Order();
+        order.setTag("Ordinary consumption");
+        order.setStatus("Finish");
+        return order;
+    }
 }

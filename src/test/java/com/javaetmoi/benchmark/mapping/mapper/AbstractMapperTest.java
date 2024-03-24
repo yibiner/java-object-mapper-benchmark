@@ -39,5 +39,13 @@ public abstract class AbstractMapperTest {
         assertNotNull(orderDTO);
     }
 
+    @Test
+    public void map_with_same_name_order() {
+        Order order = OrderFactory.buildSameNameOrder();
+        OrderDTO orderDTO = testedOrderMapper().map(order);
+        assertEquals(orderDTO.getTag(), "Ordinary consumption");
+        assertEquals(orderDTO.getStatus(), "Finish");
+    }
+
     protected abstract OrderMapper testedOrderMapper();
 }

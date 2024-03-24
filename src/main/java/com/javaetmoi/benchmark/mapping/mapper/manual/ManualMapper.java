@@ -36,6 +36,8 @@ public final class ManualMapper implements OrderMapper {
             }
             target.setProducts(targetProducts);
         }
+        target.setTag(source.getTag());
+        target.setStatus(source.getStatus());
         return target;
     }
 

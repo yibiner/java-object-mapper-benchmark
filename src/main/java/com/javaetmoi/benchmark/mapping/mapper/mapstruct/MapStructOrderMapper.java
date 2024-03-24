@@ -18,6 +18,8 @@ public interface MapStructOrderMapper extends OrderMapper {
             @Mapping(source = "customer.billingAddress.city", target = "billingCity"),
             @Mapping(source = "customer.shippingAddress.street", target = "shippingStreetAddress"),
             @Mapping(source = "customer.shippingAddress.city", target = "shippingCity"),
+            @Mapping(source = "tag", target = "tag"),
+            @Mapping(source = "status", target = "status"),
     })
     OrderDTO map(Order source);
 
